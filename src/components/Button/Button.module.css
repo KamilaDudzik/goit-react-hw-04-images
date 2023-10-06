@@ -1,0 +1,22 @@
+.centerButton {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.loadMore {
+    background-color: white;
+    padding: 20px;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 60px;
+    cursor: pointer;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loadMore:hover {
+    -webkit-box-shadow: 0px 0px 24px -5px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 24px -5px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 24px -5px rgba(255, 255, 255, 1);
+    
+}
