@@ -18,7 +18,7 @@ export const Modal = ({ imageAddress, onClick }) => {
   })
   
   return (
-    <div className={css.modal} onClick={this.modalClose}>
+    <div className={css.modal} onClick={modalClose}>
       <div>
         <img className={css.modalImage} src={imageAddress} alt="modal" />
       </div>
