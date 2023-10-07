@@ -8,42 +8,42 @@ const INITIAL_STATE = {
     name: ""
 }
 
-export const SearchBar = ({ name, onSubmit }) => {
+export const SearchBar = ({ onSubmit }) => {
+  const [searchInfo, setSearchInfo] = useState(INITIAL_STATE)
 
-    const [searchInfo, setSearchInfo] = useState(INITIAL_STATE)
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const { name } = searchInfo
+    onSubmit(name)
 
-    const handlerSubmit = (event) => {
-        event.preventDefault()
-        const { name } = searchInfo
-        onSubmit(name)
-        setSearchInfo({ name: "" });
-    }
-    
-    const handlerChange = (event) => {
-        const { value } = event.currentTarget;
-        setSearchInfo({ name: value });
-    }
-    
-    return (
-        <header>
-            <form className={css.form} onSubmit={handlerSubmit}>
-                <input
-                    type="text"
-                    autoComplete="off"
-                    autoFocus
-                    placeholder="Search images and photos"
-                    onChange={handlerChange}
-                    value={name}
-                    className={css.input}
-                />
-                <button className={css.submitButton} type="submit">
-                    <span>Search</span>
-                </button>
-            </form>
-        </header>
-    )
+    setSearchInfo(INITIAL_STATE)
+  }
+
+  const handleChange = (event) => {
+    const { value } = event.currentTarget
+    setSearchInfo({ name: value })
+  }
+
+  return (
+    <header>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+          onChange={handleChange}
+          value={searchInfo.name}
+          className={css.input}
+        />
+        <button className={css.submitButton} type="submit">
+          <span>Search</span>
+        </button>
+      </form>
+    </header>
+  )
 }
 
 SearchBar.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 }
